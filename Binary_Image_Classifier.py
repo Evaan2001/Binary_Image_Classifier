@@ -3,31 +3,31 @@ import os
 
 plt.style.use('classic')
 
-###################################
+#import packages
 import tensorflow as tf
 from tensorflow import keras
 from keras.models import Sequential
 from keras.layers import Conv2D, MaxPooling2D
 from keras.layers import Activation, Dropout, Flatten, Dense
 
-###################################
+#now import my Essentials.py file that has a bunch of helper functions
 
 import Essentials
 ###################################
 
+#set class names to label the training/testing data
 rock = "sunstone"
 not_rock = "not_" + rock
 
-DIRECTORY_PATH = ""
-DIRECTORY_NAME = "RL040420"
+# Now we'll create a variable that stores the details of the directory where training data is located
+# The way I have set up the Essentials file, we need to follow the following format:
+# DIRECTORY_DATA = [path to Directory, num of positive cases, no of negative cases, image height, image width]
+DIRECTORY_NAME = "RL040420" #Name of the folder that has all the training images
+num_positive_cases = 335 #Easy to get these numbers with MacOS/Windows but I'm sure this can be easily calculated with a Python script
+num_negative_cases = 3080
+DIRECTORY_DATA = [DIRECTORY_NAME", 335, 3080, 112, 112]
 
-# Now we'll create a variable that stores the details of the directory that stores training data
-# There's a format that needs to be followed
-# DIRECTORY_DATA = [Directory_name, num of positive cases, no of negative cases, image height, image width]
-
-DIRECTORY_DATA = ["DIRECTORY", 335, 3080, 112, 112]
-#
-color_data, grayscale_data = Essentials.getCompressedData(DIRECTORY)
+color_data, grayscale_data = Essentials.getCompressedData(DIRECTORY) #retrieve the images from
 
 normalization_Factor = 255.0
 
