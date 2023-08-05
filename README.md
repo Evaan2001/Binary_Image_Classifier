@@ -16,6 +16,7 @@ Getting Started
 </h2>
 
 <p  align="center">
-<img  src= "https://github.com/Evaan2001/Binary_Image_Classifier/assets/82547698/ec6d25d5-bba8-431f-bc30-f829730524b5">
+<img  src= "https://github.com/Evaan2001/Binary_Image_Classifier/assets/82547698/ec6d25d5-bba8-431f-bc30-f829730524b5"
+  width="500">
 </p>
  
