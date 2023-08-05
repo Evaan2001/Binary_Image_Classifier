@@ -1,4 +1,5 @@
 
+
 <p  align="center">
 <img  src= "https://github.com/Evaan2001/Binary_Image_Classifier/assets/82547698/510a60c1-55eb-485e-8064-ef7515144dac"
 width = "900"/>
@@ -86,8 +87,10 @@ Files
 Here's what you'll find –
 </p>
 
-1. *input* – a directory/folder that has 4 csv files. Each file has sudoku boards where a blank cells is represented by 0. The tiny file has 100 boards, small has 1000, medium has 10,000, and large has 100,000 boards.
-2. *Makefile* – This compiles the program and preprares a file that you can run from the terminal.
-3. *sudoku.cu* – The CUDA file that has all of the main code
-4. *util.h* – A utilities file that helps with time calculations to measure performance.
-
+1. *2nd Summer.mov* – A working video of the prototype. Sadly, GitHub won't play the video in your browser. So you'll have to download it and then open it. 😅 
+2. *Binary_Image_Classifier.py* – This is the file that builds and trains the CNN. It also plots stats about the model's loss, accuracy, and false-negative rate across the training epochs
+3. *Converter.py* – This file loads a TensorFlow model and converts it into a TensorFlow Lite model
+4. *CreateData.py* – The file that loads the training images, both in color and grayscale, and stores them as compressed numpy arrays 
+5. *Essentials.py* – A file that has a bunch of helper functions I used frequently
+6. *IndividualTestLite.py* – The file that invokes the TensorFlow Lite model and uses it to predict the class of all the images
+7. *grayscale_RL040420.npz* – The npz file containing the grayscale images
