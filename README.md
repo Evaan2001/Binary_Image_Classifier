@@ -40,9 +40,54 @@ Model Structure
 </h2>
 
 <p  align="center">
-T
+I knew that my model would be running on a Raspberry PI. This meant my model won't have the access to abundant computaional resources and thus needed to be lightweight. I used TensorFlow (in Python) to set up the model architecture. And here are the different layers –
 </p>
 
+1. 1st convolutional layer with 32 3*3 kernels
+2. 1st activation layer using relu
+3. 1st MaxPooling layer 
+4. 2nd convolutional layer with 32 3*3 kernels again
+5. 2nd activation layer using relu again
+6. 2nd MaxPooling layer 
+7. Model Flattening
+8. Dense (aka, fully connected) layer with 64 nodes
+9. 3rd activation layer using relu again
+10. Dropout layer
+11. Dense layer with 1 node (to calculate the weighted sum of previous layer nodes)
+12. 4th Activation layer, this time using sigmoid 
+
 <h2  align="center">
-Model Training
+Notes On Model Training
 </h2>
+
+1. **Data Format** – Loading images every time to train multiple models was very time-consuming. So I chose to first load the images into numpy arrays and then store
+them in a single compressed "npz" file. This is a compressed file format 
+that allows us to save and load multiple arrays efficiently. Unfortunately, GitHub won't let me upload the npz file containing the original color images. So I provided the npz file containing grayscale images. But my model does need color images; sigh!
+2. **Unbalanced Data** – Our data is heavily unbalanced. We have only 334 samples of sunstone images but 3074 not_sunstone images (that's a 10x difference!). If we train our model with the data set, it will hardly learn how to identify sunstones as all the information it's getting is primarily for not_sunstone. To solve this, we will set class weights. We want the model to get an equal amount of info on sunstones & not_sunstones to prevent overfitting. For each sunstone image, we have 3074/334 ≈ 9.2 images. So we'll instruct the model to consider each sunstone image as approximately 9.2 non_sunstone images. All we need to do is set class weights as  weights = [1, 9.2]. Here, the weight for class 0 (aka, not_sunstone) is 1 and the weight for class 1 (aka, sunstone) is 9.2
+3. **Training Checkpoints** – We will train the model over 20 epochs. In case later epochs cause overfitting, we will save the weights after each epoch as checkpoints. This will help us retrieve the best performing model when training is over.
+
+<h2 align="center"> 
+TensorFlow Lite
+</h2>
+ 
+<p  align="center">
+I had to run my CNN on a Raspberry Pi 2 without a stable internet connection. To make sure my program does not freeze, I decided to convert my TensorFlow model into a TensorFlow Lite model. TensorFlow Lite is a lightweight version of TensorFlow that is designed for mobile and embedded devices. It provides a set of tools that enable on-device machine learning.
+</p>
+
+<p  align="center">
+Using TensorFlow Lite models is not so straightforward. Firstly, to load a TensorFlow Lite (tfLite) model, we'll need the tflite.Interpreter class. This class has a load_model() method that takes the path to the TensorFlow Lite model file as its argument. Once the model is loaded, we can use the predict() method to make predictions. The tfLite.predict() method takes an input tensor as its argument. The input tensor must have the same shape as the input tensor that was used to train the model. The tfLite.predict() method returns an output tensor. The output tensor contains the predictions for the input tensor.
+</p>
+
+<h2 align="center"> 
+Files
+</h2>
+ 
+<p  align="center">
+Here's what you'll find –
+</p>
+
+1. *input* – a directory/folder that has 4 csv files. Each file has sudoku boards where a blank cells is represented by 0. The tiny file has 100 boards, small has 1000, medium has 10,000, and large has 100,000 boards.
+2. *Makefile* – This compiles the program and preprares a file that you can run from the terminal.
+3. *sudoku.cu* – The CUDA file that has all of the main code
+4. *util.h* – A utilities file that helps with time calculations to measure performance.
+
