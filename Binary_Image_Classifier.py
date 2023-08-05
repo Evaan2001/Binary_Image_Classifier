@@ -23,11 +23,7 @@ import Essentials
 # Set class names to label the training/testing data
 rock = "sunstone"
 not_rock = "not_" + rock
-
-# Now we'll create a variable that stores the details of the directory where training data is located
-# The way I have set up the Essentials file, we need to follow the following format:
-# DIRECTORY_DATA = [path to Directory, num of positive cases, no of negative cases, image height, image width]
-DIRECTORY_NAME = "RL040420" #Name of the folder that has all the training images
+DIRECTORY_NAME = "RL040420" # Name of the folder that has all the training images
 
 # Now we will retrieve all of the images. I stored them as a compressed numpy file (npz file) for faster loading & processing
 # Check out CreateData.py to see the code and for more information on this process 
