@@ -84,7 +84,7 @@ model.add(Activation('sigmoid')) # Apply the sigmoid activation function to calc
 # To solve this, we will set class weights. We want the model to get an equal amount of info on sunstones & not_sunstones to prevent overfitting.
 # For each sunstone image, we have 3074/334 ≈ 9.2 images. So we'll instruct the model to consider each sunstone image as approximately 9.2 non_sunstone images.
 # All we need to do is set class weights.
-weights = [1, 9.2] # The weight for class 0 (aka, not_sunstone) is 1 and the weight for class 1 (aka, not_sunstone) is 9.2
+weights = [1, 9.2] # The weight for class 0 (aka, not_sunstone) is 1 and the weight for class 1 (aka, sunstone) is 9.2
 
 # We will train the model over 20 epochs. In case later epochs cause overfitting, we will save the weights after each epoch as checkpoints
 checkpoint_path = "training/cp-{epoch:02d}.ckpt" # where we are storing the checkpoints
