@@ -8,18 +8,18 @@ Binary Image Classifier
 </h1>
 
 <h3 align="center">
-I developed this classifier for a mining company to identify sunstones (a gemstone used for jewellery) from a mix of other rocks
+I developed this classifier for a mining company to identify sunstones (a gemstone used for jewelry) from a mix of other rocks
 </h3>
 
 <h2 align="center"> 
 Preliminary Context</h2>
 
 <p align="center">
-Sunstones are rocks that glow when a laser light passes through them. The first step in the mining process is to seperate out the rocks that glew under laser from those that didn't – so to sort out the sunstone rocks. The mining company I was working for wanted to automate this sorting process and had developed a prototype (do check out the video in this repository – "2nd Summer.mov" – to see the prototype work). They had a conveyer belt with a laser light and camera in the center and air pistons on one end; everything was connected by a Raspberry PI. The idea was that rocks will be laid out on the conveyer belt, the laser light will always be on, the camera will continuously take pictures, and if we take pictures that have glowing rocks, we will trigger the air pistons to filter them out. 
+Sunstones are rocks that glow when a laser light passes through them. The first step in the mining process is to separate out the rocks that glew under laser from those that didn't – so to sort out the sunstone rocks. The mining company I was working for wanted to automate this sorting process and had developed a prototype (do check out the video in this repository – "2nd Summer.mov" – to see the prototype work). They had a conveyer belt with a laser light and camera in the center and air pistons on one end; everything was connected by a Raspberry PI. The idea was that rocks will be laid out on the conveyer belt, the laser light will always be on, the camera will continuously take pictures, and if we take pictures that have glowing rocks, we will trigger the air pistons to filter them out. 
 </p>
 
 <p  align="center">
-My job was to come up with a binary image classifier that would run on the Raspberry PI and identify sunstones (aka, glowing rocks) in real time.
+My job was to come up with a binary image classifier that would run on the Raspberry PI and identify sunstones (aka, glowing rocks) in real-time.
 </p>
 
 <h2 align="center"> 
@@ -40,7 +40,7 @@ Model Structure
 </h2>
 
 <p  align="center">
-I knew that my model would be running on a Raspberry PI. This meant my model won't have the access to abundant computaional resources and thus needed to be lightweight. I used TensorFlow (in Python) to set up the model architecture. And here are the different layers –
+I knew that my model would be running on a Raspberry PI. This meant my model won't have access to abundant computational resources and thus needed to be lightweight. I used TensorFlow (in Python) to set up the model architecture. And here are the different layers –
 </p>
 
 1. 1st convolutional layer with 32 3*3 kernels
@@ -64,7 +64,7 @@ Notes On Model Training
 them in a single compressed "npz" file. This is a compressed file format 
 that allows us to save and load multiple arrays efficiently. Unfortunately, GitHub won't let me upload the npz file containing the original color images. So I provided the npz file containing grayscale images. But my model does need color images; sigh!
 2. **Unbalanced Data** – Our data is heavily unbalanced. We have only 334 samples of sunstone images but 3074 not_sunstone images (that's a 10x difference!). If we train our model with the data set, it will hardly learn how to identify sunstones as all the information it's getting is primarily for not_sunstone. To solve this, we will set class weights. We want the model to get an equal amount of info on sunstones & not_sunstones to prevent overfitting. For each sunstone image, we have 3074/334 ≈ 9.2 images. So we'll instruct the model to consider each sunstone image as approximately 9.2 non_sunstone images. All we need to do is set class weights as  weights = [1, 9.2]. Here, the weight for class 0 (aka, not_sunstone) is 1 and the weight for class 1 (aka, sunstone) is 9.2
-3. **Training Checkpoints** – We will train the model over 20 epochs. In case later epochs cause overfitting, we will save the weights after each epoch as checkpoints. This will help us retrieve the best performing model when training is over.
+3. **Training Checkpoints** – We will train the model over 20 epochs. In case later epochs cause overfitting, we will save the weights after each epoch as checkpoints. This will help us retrieve the best-performing model when training is over.
 
 <h2 align="center"> 
 TensorFlow Lite
