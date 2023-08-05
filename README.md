@@ -10,3 +10,12 @@ Binary Image Classifier
 <h3 align="center">
 I developed this classifier for a mining company to identify sunstones (a gemstone used for jewellery) from a mix of other rocks
 </h3>
+
+<h2 align="center"> 
+Getting Started
+</h2>
+
+<p  align="center">
+<img  src= "https://github.com/Evaan2001/Binary_Image_Classifier/assets/82547698/ec6d25d5-bba8-431f-bc30-f829730524b5">
+</p>
+ 
