@@ -36,6 +36,11 @@ I knew a CNN would be well suited for the task. To set up the training data, we 
   width="500">
 </p>
 
+<p  align="center">
+<img  src= "https://github.com/Evaan2001/Images_For_ReadMe/blob/main/Binary_Classifier.png"
+  width="500">
+</p>
+
 <h2  align="center">
 Model Structure
 </h2>
