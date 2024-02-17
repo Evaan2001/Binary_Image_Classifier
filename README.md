@@ -1,7 +1,7 @@
 
 
 <p  align="center">
-<img  src= "https://github.com/Evaan2001/Binary_Image_Classifier/assets/82547698/510a60c1-55eb-485e-8064-ef7515144dac"
+<img  src= "https://github.com/Evaan2001/Images_For_ReadMe/blob/main/Binary_Classifier.png"
 width = "900"/>
   
 <h1 align="center">
@@ -32,7 +32,7 @@ I knew a CNN would be well suited for the task. To set up the training data, we 
 </p>
 
 <p  align="center">
-<img  src= "https://github.com/Evaan2001/Images_For_ReadMe/blob/main/Binary_Classifier.png"
+<img  src= "https://github.com/Evaan2001/Images_For_ReadMe/blob/main/Binary_Classifier_Training_Photo.png"
   width="500">
 </p>
 
