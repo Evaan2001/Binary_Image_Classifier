@@ -32,11 +32,6 @@ I knew a CNN would be well suited for the task. To set up the training data, we 
 </p>
 
 <p  align="center">
-<img  src= "https://github.com/Evaan2001/Binary_Image_Classifier/assets/82547698/ec6d25d5-bba8-431f-bc30-f829730524b5"
-  width="500">
-</p>
-
-<p  align="center">
 <img  src= "https://github.com/Evaan2001/Images_For_ReadMe/blob/main/Binary_Classifier.png"
   width="500">
 </p>
