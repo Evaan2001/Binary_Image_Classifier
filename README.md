@@ -1,7 +1,3 @@
-
-https://github.com/user-attachments/assets/a7557ab8-f1db-4a47-8f7b-8e003c79b3cd
-
-
 <p  align="center">
 <img  src= "https://github.com/Evaan2001/Images_For_ReadMe/blob/main/Binary_Classifier.png"
 width = "900"/>
