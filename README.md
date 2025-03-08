@@ -25,9 +25,7 @@ My job was to come up with a binary image classifier that would run on the Raspb
 Working Video Of The Prototype
 </h2>
 
-<p  align="center">
 https://github.com/user-attachments/assets/809ec6c6-a88f-4e32-b1db-0fae9541b183
-</p>
 
 <h2 align="center"> 
 Training Data/Images
