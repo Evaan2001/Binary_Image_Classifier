@@ -1,4 +1,6 @@
 
+https://github.com/user-attachments/assets/a7557ab8-f1db-4a47-8f7b-8e003c79b3cd
+
 
 <p  align="center">
 <img  src= "https://github.com/Evaan2001/Images_For_ReadMe/blob/main/Binary_Classifier.png"
@@ -21,6 +23,14 @@ Sunstones are rocks that glow when a laser light passes through them. The first 
 
 <p  align="center">
 My job was to come up with a binary image classifier that would run on the Raspberry PI and identify sunstones (aka, glowing rocks) in real-time.
+</p>
+
+<h2 align="center"> 
+Working Video Of The Prototype
+</h2>
+
+<p  align="center">
+https://github.com/user-attachments/assets/809ec6c6-a88f-4e32-b1db-0fae9541b183
 </p>
 
 <h2 align="center"> 
